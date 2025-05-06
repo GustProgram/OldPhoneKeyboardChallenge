@@ -26,6 +26,7 @@ public class OldPhonePadDecoder
     /// <returns>Decoded string</returns>
     public static string OldPhonePad(string input)
     {
+        
         if (string.IsNullOrWhiteSpace(input) || !input.EndsWith("#"))
             return "";
 
@@ -103,21 +104,31 @@ public class OldPhonePadDecoder
         int index = (pressCount - 1) % letters.Length;
         result.Append(letters[index]);
     }
+
+
+
 }
 
 
-class Program
+class OldPhone
 {
-    static void Main()
-    {
+   
+        public  void Main()
+        {
+            OldPhonePadDecoder decoder = new OldPhonePadDecoder();
 
-        Console.WriteLine(OldPhonePadDecoder.OldPhonePad(""));
-        Console.WriteLine(OldPhonePadDecoder.OldPhonePad("33#")); // E
-        Console.WriteLine(OldPhonePadDecoder.OldPhonePad("227*#")); // B
-        Console.WriteLine(OldPhonePadDecoder.OldPhonePad("4433555 555666#")); // HELLO
-        Console.WriteLine(OldPhonePadDecoder.OldPhonePad("8 88777444666*664#")); // THINE
-        Console.WriteLine(OldPhonePadDecoder.OldPhonePad("444 777 666 66#"));  // retorna "IRON"
-        Console.WriteLine(OldPhonePadDecoder.OldPhonePad("4 88 7777 8 2 888 666 0 3 2 0 7777 444 555 888 2 0 7777 2 66 8 666 7777#"));
+            Console.WriteLine(OldPhonePadDecoder.OldPhonePad("")); // Empty input
+            Console.WriteLine(OldPhonePadDecoder.OldPhonePad("33#")); // E
+            Console.WriteLine(OldPhonePadDecoder.OldPhonePad("227*#")); // B
+            Console.WriteLine(OldPhonePadDecoder.OldPhonePad("4433555 555666#")); // HELLO
+            Console.WriteLine(OldPhonePadDecoder.OldPhonePad("8 88777444666*664#")); // THINE
+            Console.WriteLine(OldPhonePadDecoder.OldPhonePad("444 777 666 66#")); // IRON
+            Console.WriteLine(OldPhonePadDecoder.OldPhonePad("4 88 7777 8 2 888 666 0 3 2 0 7777 444 555 888 2 0 7777 2 66 8 666 7777#")); // GUSTAVO DA SILVA SANTOS
+        }
+    
 
-    }
+   
+
 }
+
+
